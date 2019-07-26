@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger
 
 import cats.effect._
 import cats.implicits._
-import io.netty.util.HashedWheelTimer
+import io.netty.util.{HashedWheelTimer, Timeout, TimerTask}
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration.FiniteDuration
@@ -40,7 +40,12 @@ object HWTimer {
             Try {
               // newTimeout throws
               timer.newTimeout(
-                _ => ec.execute(() => cb(done)),
+                new TimerTask {
+                  override def run(t: Timeout): Unit =
+                    ec.execute(new Runnable {
+                      override def run(): Unit = cb(done)
+                    })
+                },
                 duration.length,
                 duration.unit
               )
