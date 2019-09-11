@@ -1,8 +1,8 @@
 // format: off
 name := "cats-effect-netty-timer"
 organization := "com.github.yaroot"
-scalaVersion := "2.12.8"
-crossScalaVersions := Seq("2.12.8", "2.11.12")
+scalaVersion := "2.12.9"
+crossScalaVersions := Seq("2.12.9", "2.11.12")
 
 scalacOptions := Seq(
   "-deprecation",                     // Emit warning and location for usages of deprecated APIs.
@@ -59,16 +59,16 @@ fork in run := true
 
 libraryDependencies ++= {
   Seq(
-    "io.netty"      % "netty-common" % "4.1.38.Final",
-    "org.typelevel" %% "cats-effect" % "1.3.1",
-    "org.specs2"    %% "specs2-core" % "4.6.0" % "test",
+    "io.netty"      % "netty-common" % "4.1.39.Final",
+    "org.typelevel" %% "cats-effect" % "2.0.0",
+    "org.specs2"    %% "specs2-core" % "4.7.0" % "test",
   )
 }
 
 addCompilerPlugin("org.spire-math"   % "kind-projector"      % "0.9.10" cross CrossVersion.binary)
 addCompilerPlugin("com.olegpy"       %% "better-monadic-for" % "0.3.1")
 addCompilerPlugin("org.scalamacros"  %% "paradise"           % "2.1.1" cross CrossVersion.full)
-addCompilerPlugin("com.github.cb372" % "scala-typed-holes"   % "0.0.9" cross CrossVersion.full)
+addCompilerPlugin("com.github.cb372" % "scala-typed-holes"   % "0.1.0" cross CrossVersion.full)
 
 scalafmtOnCompile := true
 cancelable in Global := true
