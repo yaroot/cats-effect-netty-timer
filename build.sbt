@@ -1,8 +1,8 @@
 // format: off
 name := "cats-effect-netty-timer"
 organization := "com.github.yaroot"
-scalaVersion := "2.12.9"
-crossScalaVersions := Seq("2.12.9", "2.11.12")
+scalaVersion := "2.12.10"
+crossScalaVersions := Seq("2.12.10", "2.11.12", "2.13.1")
 
 scalacOptions := Seq(
   "-deprecation",                     // Emit warning and location for usages of deprecated APIs.
