@@ -61,14 +61,14 @@ libraryDependencies ++= {
   Seq(
     "io.netty"      % "netty-common" % "4.1.42.Final",
     "org.typelevel" %% "cats-effect" % "2.0.0",
-    "org.specs2"    %% "specs2-core" % "4.7.0" % "test",
+    "org.specs2"    %% "specs2-core" % "4.7.1" % "test",
   )
 }
 
-addCompilerPlugin("org.spire-math"   % "kind-projector"      % "0.9.10" cross CrossVersion.binary)
-addCompilerPlugin("com.olegpy"       %% "better-monadic-for" % "0.3.1")
-addCompilerPlugin("org.scalamacros"  %% "paradise"           % "2.1.1" cross CrossVersion.full)
-addCompilerPlugin("com.github.cb372" % "scala-typed-holes"   % "0.1.0" cross CrossVersion.full)
+// addCompilerPlugin("org.spire-math"   % "kind-projector"      % "0.9.10" cross CrossVersion.binary)
+// addCompilerPlugin("com.olegpy"       %% "better-monadic-for" % "0.3.1")
+// addCompilerPlugin("org.scalamacros"  %% "paradise"           % "2.1.1" cross CrossVersion.full)
+// addCompilerPlugin("com.github.cb372" % "scala-typed-holes"   % "0.1.0" cross CrossVersion.full)
 
 scalafmtOnCompile := true
 cancelable in Global := true
