@@ -2,7 +2,7 @@
 name := "cats-effect-netty-timer"
 organization := "com.github.yaroot"
 scalaVersion := "2.12.10"
-crossScalaVersions := Seq("2.12.10", "2.11.12", "2.13.1")
+crossScalaVersions := Seq("2.12.10", "2.13.1")
 
 scalacOptions := Seq(
   "-deprecation",                     // Emit warning and location for usages of deprecated APIs.
@@ -59,9 +59,9 @@ fork in run := true
 
 libraryDependencies ++= {
   Seq(
-    "io.netty"      % "netty-common" % "4.1.42.Final",
+    "io.netty"      % "netty-common" % "4.1.43.Final",
     "org.typelevel" %% "cats-effect" % "2.0.0",
-    "org.specs2"    %% "specs2-core" % "4.7.1" % "test",
+    "org.specs2"    %% "specs2-core" % "4.8.0" % "test",
   )
 }
 
