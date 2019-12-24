@@ -59,9 +59,9 @@ fork in run := true
 
 libraryDependencies ++= {
   Seq(
-    "io.netty"      % "netty-common" % "4.1.43.Final",
+    "io.netty"      % "netty-common" % "4.1.44.Final",
     "org.typelevel" %% "cats-effect" % "2.0.0",
-    "org.specs2"    %% "specs2-core" % "4.8.0" % "test",
+    "org.specs2"    %% "specs2-core" % "4.8.1" % "test",
   )
 }
 
