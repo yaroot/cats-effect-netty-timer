@@ -15,12 +15,12 @@ object HashedWheelTimer {
   def unsafe[F[_]: Concurrent](ec: ExecutionContext): Timer[F] = {
     val timer = defaultNettyTimer()
     timer.start()
-    fromNetty(timer, ec)
+    fromNetty[F](timer, ec)
   }
 
   def apply[F[_]: Concurrent](ec: ExecutionContext): Resource[F, Timer[F]] = {
     nettyTimerResource[F]
-      .map(fromNetty(_, ec))
+      .map(fromNetty[F](_, ec))
   }
 
   def nettyTimerResource[F[_]](implicit F: Sync[F]): Resource[F, NettyTimer] = {
