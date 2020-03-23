@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger
 
 import cats.effect._
 import cats.implicits._
-import io.netty.util.{HashedWheelTimer => NettyTimer, Timeout}
+import io.netty.util.{Timeout, HashedWheelTimer => NettyTimer}
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
@@ -18,9 +18,9 @@ object HashedWheelTimer {
     fromNetty[F](timer, ec)
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Nothing"))
   def apply[F[_]: Concurrent](ec: ExecutionContext): Resource[F, Timer[F]] = {
-    nettyTimerResource[F]
-      .map(fromNetty[F](_, ec))
+    nettyTimerResource[F].map(fromNetty[F](_, ec))
   }
 
   def nettyTimerResource[F[_]](implicit F: Sync[F]): Resource[F, NettyTimer] = {
@@ -29,7 +29,7 @@ object HashedWheelTimer {
       _ <- F.delay(t.start())
     } yield t
 
-    val release = (t: NettyTimer) => F.delay(t.stop()).as(())
+    val release = (t: NettyTimer) => F.delay(t.stop()).void
     Resource.make(create)(release)
   }
 
