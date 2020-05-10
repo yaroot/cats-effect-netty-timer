@@ -38,7 +38,7 @@ object HashedWheelTimer {
     val done = ().asRight[Throwable]
 
     new Timer[F] {
-      override val clock: Clock[F] = Clock.create[F]
+      override val clock: Clock[F]                          = Clock.create[F]
       override def sleep(duration: FiniteDuration): F[Unit] = {
         F.cancelable { callback =>
           val timeout = F.fromTry(
