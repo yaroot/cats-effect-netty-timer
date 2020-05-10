@@ -9,9 +9,10 @@ fork in run := true
 
 libraryDependencies ++= {
   Seq(
-    "io.netty"      % "netty-common" % "4.1.49.Final",
-    "org.typelevel" %% "cats-effect" % "2.1.3",
-    "org.specs2"    %% "specs2-core" % "4.9.4" % "test"
+    "io.netty"          % "netty-common"                  % "4.1.49.Final",
+    "org.typelevel"     %% "cats-effect"                  % "2.1.3",
+    "io.monix"          %% "minitest"                     % "2.8.2",
+    "com.codecommit"    %% "cats-effect-testing-minitest" % "0.4.0"
   )
 }
 
@@ -20,3 +21,5 @@ cancelable in Global := true
 
 // wartremoverErrors in (Compile, compile) ++= Warts.all
 wartremoverErrors ++= Warts.all
+
+testFrameworks += new TestFramework("minitest.runner.Framework")
